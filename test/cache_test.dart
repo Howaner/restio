@@ -2672,11 +2672,31 @@ void main() {
       final cacheDir = io.Directory('./.cache');
 
       if (cacheDir.existsSync()) {
-        //cacheDir.listSync(recursive: true).forEach((i) => i.deleteSync());
+        cacheDir.listSync(recursive: true).forEach((i) => i.deleteSync());
       }
     });
 
     testCacheStore(() => DiskCacheStore(io.Directory('./.cache')));
+  });
+
+  group('DiskLruCacheStore', () {
+    setUp(() {
+      final cacheDir = io.Directory('./.cache');
+
+      if (cacheDir.existsSync()) {
+        cacheDir.listSync(recursive: true).forEach((i) => i.deleteSync());
+      }
+    });
+
+    tearDownAll(() {
+      final cacheDir = io.Directory('./.cache');
+
+      if (cacheDir.existsSync()) {
+        cacheDir.listSync(recursive: true).forEach((i) => i.deleteSync());
+      }
+    });
+
+    testCacheStore(() => DiskLruCacheStore(io.Directory('./.cache')));
   });
 }
 

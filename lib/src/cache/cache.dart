@@ -18,6 +18,7 @@ import 'package:restio/src/response.dart';
 export 'cache_control.dart';
 export 'cache_store.dart';
 export 'disk_cache_store.dart';
+export 'disk_lru_cache_store.dart';
 export 'editor.dart';
 export 'memory_cache_store.dart';
 export 'snapshot.dart';
